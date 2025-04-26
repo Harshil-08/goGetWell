@@ -5,6 +5,9 @@ import {
 	ChevronRight,
 	Globe,
 	MessageSquare,
+	Languages,
+	CreditCard,
+	Search,
 	Sparkles,
 	Star,
 	Users,
@@ -13,6 +16,7 @@ import {
 	FileText,
 	Menu,
 	X,
+    icons,
 } from "lucide-react";
 
 const scrollToSection = (id) => {
@@ -29,19 +33,19 @@ export default function Home() {
 
 	const features = [
 		{
-			title: "AI-Powered Website",
+			title: "Custom AI-Powered Website",
 			description: "Intelligent, responsive websites tailored to healthcare providers with automated patient interactions.",
 			icon: <Globe className="w-6 h-6 text-white" />,
 			bgColor: "bg-blue-500",
 		},
 		{
-			title: "Patient Conversion",
+			title: "Enhanced Patient Conversion",
 			description: "Smart conversion optimization tools to turn visitors into patients with personalized experiences.",
 			icon: <Users className="w-6 h-6 text-white" />,
 			bgColor: "bg-purple-500",
 		},
 		{
-			title: "Real-Time Chat",
+			title: "Real-Time Query Handling",
 			description: "Instant response system for patient inquiries with AI-powered chat support.",
 			icon: <MessageSquare className="w-6 h-6 text-white" />,
 			bgColor: "bg-green-500",
@@ -53,17 +57,35 @@ export default function Home() {
 			bgColor: "bg-orange-500",
 		},
 		{
-			title: "Lead Generation",
+			title: "Improved Lead Generation",
 			description: "Data-driven lead generation strategies to attract and engage potential patients.",
 			icon: <Zap className="w-6 h-6 text-white" />,
 			bgColor: "bg-pink-500",
 		},
 		{
-			title: "Healthcare Database",
+			title: "comprehensive Healthcare Database",
 			description: "Extensive medical information database for accurate patient guidance and support.",
 			icon: <Database className="w-6 h-6 text-white" />,
 			bgColor: "bg-indigo-500",
 		},
+		{
+			title: "Multilingual Support",
+			description: "Breaking language barriers with comprehensive multilingual communication tools.",
+			icon: <Languages className="w-6 h-6 text-white" />,
+			bgColor: "bg-red-500",
+		},
+		{
+			title: "Seamless Payment Handling",
+			description: "Secure and efficient payment processing for medical services globally.",
+			icon: <CreditCard className="w-6 h-6 text-white" />,
+			bgColor: "bg-teal-500",
+		},
+    {
+			title: "Marketing And SEO Support",
+			description: "Optimized digital presence with advanced SEO and marketing strategies.",
+      icon: <Search className="w-6 h-6 text-white "/>,
+			bgColor: "bg-cyan-500",
+		}
 	];
 
 	const tabs = [
@@ -404,9 +426,9 @@ export default function Home() {
 									<div className="space-y-3">
 										{[1, 2, 3].map((i) => (
 											<div key={i} className="flex items-center p-3 border border-gray-100 rounded-lg">
-												<div className="w-10 h-10 rounded-full bg-gray-200 flex-shrink-0"></div>
+												<img className="w-10 h-10 rounded-full flex-shrink-0" src="https://avatar.iran.liara.run/public/5"/>
 												<div className="ml-3">
-													<div className="text-sm font-medium">Patient #{i}</div>
+													<div className="text-sm font-medium">Patient {i}</div>
 													<div className="text-xs text-gray-500">Appointment scheduled</div>
 												</div>
 												<div className="ml-auto text-xs text-gray-500">2h ago</div>
@@ -424,9 +446,9 @@ export default function Home() {
 			<section className="py-12 bg-gray-50">
 				<div className="container mx-auto px-4">
 					<p className="text-center text-gray-600 mb-8">Trusted by leading healthcare providers</p>
-					<div className="flex flex-wrap justify-center gap-8 md:gap-16">
+					<div className="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
 						{[1, 2, 3, 4, 5].map((i) => (
-							<div key={i} className="h-8 w-32 bg-gray-200 rounded"></div>
+							<div key={i} className="h-8 w-32 bg-gray-200 rounded">Company {i}</div>
 						))}
 					</div>
 				</div>
@@ -446,13 +468,14 @@ export default function Home() {
 						{features.map((feature, index) => (
 							<div
 								key={index}
-								className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition"
+								className="relative bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition"
 							>
 								<div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${feature.bgColor}`}>
 									{feature.icon}
 								</div>
-								<h3 className="text-xl font-bold mb-2 sr-only">Feature: {feature.title}</h3>
+								<h3 className="text-xl font-bold mb-2">{feature.title}</h3>
 								<p className="text-gray-600">{feature.description}</p>
+								<div className={`h-1 w-full absolute bottom-0 opacity-75 left-0 rounded-b-xl ${feature.bgColor}`}></div>
 							</div>
 						))}
 					</div>
